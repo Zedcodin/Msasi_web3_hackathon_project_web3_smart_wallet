@@ -1,59 +1,38 @@
-# web3APP
+**Smart Wallet Application Documentation**
 
-Welcome to your new web3APP project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+**Introduction:**
+The Smart Wallet Application is a revolutionary financial tool designed to address the inefficiencies and inconveniences associated with traditional banking systems. Leveraging blockchain technology and smart contracts, this application offers a comprehensive suite of financial services directly on users' mobile devices. By enabling multi-currency exchanges, digital check processing, and various other features, the Smart Wallet Application aims to streamline financial transactions, improve accessibility, and enhance overall user experience.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+**Problem Statement:**
+Traditional banking systems often suffer from several shortcomings, including limited mobile functionality, lengthy queues for currency exchanges and check processing, and a lack of efficiency in international transactions. These issues can lead to inconvenience, inefficiency, and barriers to effective financial management.
 
-To learn more before you start working with web3APP, see the following documentation available online:
+**Solution:**
+The Smart Wallet System provides a solution to these challenges by offering a range of financial services directly through users' mobile phones. By leveraging blockchain technology and smart contracts, the application facilitates seamless currency exchanges, transfers, deposits, withdrawals, bill payments, and digital check processing. This innovative approach reshapes traditional banking, eliminating the need for physical queues and enabling users to manage their finances efficiently from anywhere, at any time.
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
+**Key Features:**
+1. **Multi-Currency Exchange:** Users can easily exchange between different currencies, including Kwacha, Shilling, Dollar, and Bitcoin, directly within the application.
+  
+2. **Digital Check Processing:** The application allows users to process digital checks, eliminating the need for physical paper checks and streamlining the payment process.
+  
+3. **Mobile Accessibility:** With the Smart Wallet Application, users can access a full range of financial services directly on their mobile devices, offering convenience and flexibility.
 
-If you want to start working on your project right away, you might want to try the following commands:
+4. **Blockchain Technology:** Leveraging blockchain ensures security, transparency, and immutability of financial transactions, enhancing trust and reliability for users.
 
-```bash
-cd web3APP/
-dfx help
-dfx canister --help
-```
+5. **Efficient International Transactions:** By removing barriers to international transactions, the application enables users to conduct cross-border transactions seamlessly.
 
-## Running the project locally
+6. **Financial Management Tools:** The application provides users with tools and features to manage their finances effectively, including real-time balance updates, transaction histories, and budgeting tools.
 
-If you want to test your project locally, you can use the following commands:
+**Environmental Initiative:**
+In addition to its core financial services, the Smart Wallet Application includes a unique feature aimed at addressing environmental concerns and promoting sustainability. Users have the opportunity to participate in a waste collection program, where they can earn points for collecting and disposing of waste responsibly. These points can be converted into monetary rewards or used for various incentives within the application, encouraging environmental stewardship and community engagement.
 
-```bash
-# Starts the replica, running in the background
-dfx start --background
+**Group Members:**
+- **Joshua Simwawa:** Developer
+- **Gerald Limbando:** Developer
+- **Chipili Nonde:** Developer
+- **Mathews Tembo:** Developer
+- **Panashe Muza:** Developer
+- **Peter Mwetwa:** Business Specialist
 
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
+The collaborative efforts of these individuals have contributed to the development and implementation of the Smart Wallet Application, bringing together technical expertise and business acumen to create a transformative financial solution.
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you have made changes to your backend canister, you can generate a new candid interface with
-
-```bash
-npm run generate
-```
-
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
-
-If you are making frontend changes, you can start a development server with
-
-```bash
-npm start
-```
-
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-### Note on frontend environment variables
-
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
-
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+This documentation provides an overview of the Smart Wallet Application, its features, and its potential impact on financial accessibility and environmental sustainability. With its innovative approach and commitment to user-centric design, the Smart Wallet Application represents a significant advancement in the field of financial technology.
