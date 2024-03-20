@@ -1,9 +1,12 @@
 actor {
+
+  // Initialize balances for different currencies
   var kwachaBalance : Float = 1000;
   var shillingBalance : Float = 0;
   var dollarBalance : Float = 0;
   var bitcoinBalance : Float = 0;
 
+  // Define exchange rates between currencies
   var kwachaToShilling : Float = 101.97;
   var kwachaToDollar : Float = 0.040;
   var kwachaToBitcoin : Float = 0.00000059;
@@ -36,12 +39,12 @@ actor {
     bitcoin = bitcoinBalance;
   };
 
-   public func getBalance() : async Balances {
+  // Function to retrieve balances
+  public func getBalance() : async Balances {
     return balance;
   };
 
-  
-
+  // Function for currency exchange: Kwacha to other currencies
   public func exchangeKwachaToDollarToShillingToBitcoin(currency : Text, amount : Float) : async Float {
     if (currency == "shilling") {
       var exchangedAmount = amount * kwachaToShilling;
@@ -56,18 +59,17 @@ actor {
       update();
       return exchangedAmount;
     } else if (currency == "bitcoin") {
-      // Assuming kwachaToBitcoin is the exchange rate from Kwacha to Bitcoin
       var exchangedAmount = amount * kwachaToBitcoin;
       kwachaBalance -= amount;
       bitcoinBalance += exchangedAmount;
       update();
       return exchangedAmount;
     } else {
-      // Handle unsupported currency types
-      return 0.0; // or throw an error
+      return 0.0; // Handle unsupported currency types
     };
   };
 
+  // Function for currency exchange: Dollar to other currencies
   public func exchangeDollarToShillingToBitcoinToKwacha(currency : Text, amount : Float) : async Float {
     if (currency == "shilling") {
       var exchangedAmount = amount * dollarToShilling;
@@ -82,18 +84,17 @@ actor {
       update();
       return exchangedAmount;
     } else if (currency == "bitcoin") {
-      // Assuming kwachaToBitcoin is the exchange rate from Kwacha to Bitcoin
       var exchangedAmount = amount * dollarToBitcoin;
       dollarBalance -= amount;
       bitcoinBalance += exchangedAmount;
       update();
       return exchangedAmount;
     } else {
-      // Handle unsupported currency types
-      return 0.0; // or throw an error
+      return 0.0; // Handle unsupported currency types
     };
   };
 
+  // Function for currency exchange: Shilling to other currencies
   public func exchangeShillingToBitcoinToKwachaDollar(currency : Text, amount : Float) : async Float {
     if (currency == "dollar") {
       var exchangedAmount = amount * shillingToDollar;
@@ -108,18 +109,17 @@ actor {
       update();
       return exchangedAmount;
     } else if (currency == "bitcoin") {
-      // Assuming kwachaToBitcoin is the exchange rate from Kwacha to Bitcoin
       var exchangedAmount = amount * shillingToBitcoin;
       shillingBalance -= amount;
       bitcoinBalance += exchangedAmount;
       update();
       return exchangedAmount;
     } else {
-      // Handle unsupported currency types
-      return 0.0; // or throw an error
+      return 0.0; // Handle unsupported currency types
     };
   };
 
+  // Function for currency exchange: Bitcoin to other currencies
   public func exchangeBitcoinToKwachaDollarToShilling(currency : Text, amount : Float) : async Float {
     if (currency == "dollar") {
       var exchangedAmount = amount * bitcoinToDollar;
@@ -134,32 +134,27 @@ actor {
       update();
       return exchangedAmount;
     } else if (currency == "shilling") {
-      // Assuming kwachaToBitcoin is the exchange rate from Kwacha to Bitcoin
       var exchangedAmount = amount * bitcoinToShilling;
       bitcoinBalance -= amount;
       shillingBalance += exchangedAmount;
       update();
       return exchangedAmount;
     } else {
-      // Handle unsupported currency types
-      return 0.0; // or throw an error
+      return 0.0; // Handle unsupported currency types
     };
   };
 
-
+  // Function to deposit funds
   public func deposit(currency : Text, amount : Float): async Float{
      if (currency == "dollar") {
       dollarBalance += amount;
       update();
       return dollarBalance ;
     } else if (currency == "kwacha") {
-    
       kwachaBalance += amount;
       update();
       return kwachaBalance;
     } else if (currency == "bitcoin") {
-      // Assuming kwachaToBitcoin is the exchange rate from Kwacha to Bitcoin
-   
       bitcoinBalance += amount;
       update();
       return bitcoinBalance;
@@ -167,29 +162,22 @@ actor {
       shillingBalance += amount;
       update();
       return shillingBalance;
-
     } else {
-      // Handle unsupported currency types
-      return 0.0; // or throw an error
+      return 0.0; // Handle unsupported currency types
     };
-
-
-
-
   };
+
+  // Function to withdraw funds
   public func withDraw(currency : Text, amount : Float): async Float{
      if (currency == "dollar") {
       dollarBalance -= amount;
       update();
       return dollarBalance ;
     } else if (currency == "kwacha") {
-    
       kwachaBalance -= amount;
       update();
       return kwachaBalance;
     } else if (currency == "bitcoin") {
-      // Assuming kwachaToBitcoin is the exchange rate from Kwacha to Bitcoin
-   
       bitcoinBalance -= amount;
       update();
       return bitcoinBalance;
@@ -197,17 +185,12 @@ actor {
       shillingBalance -= amount;
       update();
       return shillingBalance;
-
     } else {
-      // Handle unsupported currency types
-      return 0.0; // or throw an error
+      return 0.0; // Handle unsupported currency types
     };
-
-
-
-
   };
 
+  // Function to update balances
   private func update() : () {
     balance := {
       kwacha = kwachaBalance;
@@ -215,13 +198,5 @@ actor {
       dollar = dollarBalance;
       bitcoin = bitcoinBalance;
     };
-
   };
-
-  
-
-  
-
- 
-
 };
